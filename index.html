@@ -9,74 +9,87 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <!-- Your Matrix CSS -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Additional Professional CSS Overlay -->
+    <!-- Combined CSS (Matrix + Professional) -->
     <style>
-        /* PROFESSIONAL OVERRIDES FOR AGENCY LOOK */
-        
-        /* Typography Upgrade */
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Rajdhani', sans-serif !important;
+            background-color: #000;
+            color: #00FF66;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
         }
-        h1, h2, h3, h4, .logo, .glitch-text, .nav-links a {
-            font-family: 'Orbitron', monospace !important;
+
+        /* ===== MATRIX CANVAS ===== */
+        canvas#matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
-        
-        /* Remove default section padding to use better layout */
-        section {
-            min-height: 100vh;
-            padding: 120px 50px 80px !important;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            border-bottom: none !important;
+
+        /* ===== PROFESSIONAL OVERLAY ===== */
+        .content-wrapper {
             position: relative;
+            z-index: 1;
         }
-        
-        /* Premium Glassmorphism Navigation */
+
+        /* ===== NAVIGATION ===== */
         header {
-            background: rgba(0, 0, 0, 0.85) !important;
-            backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(0, 255, 102, 0.3) !important;
-            padding: 15px 60px !important;
-            box-shadow: 0 0 40px rgba(0, 255, 102, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 255, 102, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 0 40px rgba(0, 255, 102, 0.05);
         }
-        
+
         .logo {
-            font-size: 28px !important;
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            font-weight: 900;
             letter-spacing: 3px;
-            background: linear-gradient(90deg, #00FF66, #00cc66);
+            background: linear-gradient(135deg, #00FF66, #00cc66);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: none !important;
+            text-shadow: none;
         }
-        
+
         .logo i {
             -webkit-text-fill-color: #00FF66;
-            margin-right: 10px;
+            margin-right: 12px;
+            font-size: 30px;
         }
-        
-        /* Professional Navigation Links */
+
         .nav-links {
             display: flex;
             gap: 35px;
             list-style: none;
         }
-        
+
         .nav-links a {
-            color: #aaffcc !important;
+            color: #aaffcc;
             text-decoration: none;
-            font-size: 15px !important;
+            font-size: 15px;
             font-weight: 600;
             letter-spacing: 1px;
             transition: 0.3s;
             position: relative;
-            text-shadow: none !important;
         }
-        
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -87,193 +100,216 @@
             background: #00FF66;
             transition: 0.3s;
         }
-        
+
         .nav-links a:hover::after {
             width: 100%;
         }
-        
+
         .nav-links a:hover {
-            color: #00FF66 !important;
+            color: #00FF66;
         }
-        
+
         .nav-cta {
             background: #00FF66 !important;
             color: #000 !important;
-            padding: 8px 25px !important;
+            padding: 10px 30px !important;
             border-radius: 50px !important;
             font-weight: 700 !important;
-            border: none !important;
+            transition: 0.3s !important;
         }
-        
+
         .nav-cta::after {
             display: none !important;
         }
-        
+
         .nav-cta:hover {
             background: #00cc52 !important;
-            box-shadow: 0 0 30px rgba(0, 255, 102, 0.4) !important;
+            box-shadow: 0 0 40px rgba(0, 255, 102, 0.3) !important;
+            transform: translateY(-2px);
             color: #000 !important;
         }
-        
-        /* Hero Section - Global Agency */
-        .hero-agency {
-            min-height: 100vh !important;
-            justify-content: center !important;
-            padding: 0 50px !important;
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 120px 40px 80px;
             position: relative;
         }
-        
-        .hero-agency h1 {
-            font-size: 72px !important;
-            font-weight: 900;
-            letter-spacing: 8px;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #00FF66, #00cc66, #00FF66);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 60px rgba(0, 255, 102, 0.3) !important;
-            animation: none !important;
-        }
-        
-        .hero-subtitle {
-            font-size: 22px !important;
-            color: #aaffcc;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-            font-weight: 300;
-        }
-        
-        .hero-tagline {
-            font-size: 16px;
-            color: #66ffaa;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.8;
-            opacity: 0.8;
-        }
-        
+
         .hero-badges {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
-        
+
         .hero-badge {
             background: rgba(0, 255, 102, 0.08);
             border: 1px solid rgba(0, 255, 102, 0.2);
-            padding: 10px 25px;
+            padding: 8px 22px;
             border-radius: 50px;
             font-size: 13px;
             color: #aaffcc;
             letter-spacing: 1px;
+            font-weight: 500;
         }
-        
+
         .hero-badge i {
             color: #00FF66;
             margin-right: 8px;
         }
-        
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 80px;
+            font-weight: 900;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00FF66, #00cc66, #00FF66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 80px rgba(0, 255, 102, 0.2);
+            animation: glitch 5s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(3px, -3px); }
+            60% { transform: translate(-3px, -3px); }
+            80% { transform: translate(3px, 3px); }
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            color: #aaffcc;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .hero-tagline {
+            font-size: 17px;
+            color: #66ffaa;
+            max-width: 650px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
         .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
+
         .btn-primary {
-            background: #00FF66 !important;
-            color: #000 !important;
-            padding: 16px 45px !important;
-            border-radius: 50px !important;
-            font-weight: 700 !important;
-            font-size: 16px !important;
+            background: #00FF66;
+            color: #000;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
             letter-spacing: 1px;
-            border: none !important;
+            border: none;
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
         }
-        
+
         .btn-primary:hover {
-            transform: translateY(-3px) !important;
-            box-shadow: 0 0 60px rgba(0, 255, 102, 0.4) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 0 60px rgba(0, 255, 102, 0.4);
         }
-        
+
         .btn-secondary {
-            background: transparent !important;
-            color: #00FF66 !important;
-            padding: 16px 45px !important;
-            border-radius: 50px !important;
-            border: 2px solid #00FF66 !important;
-            font-weight: 700 !important;
-            font-size: 16px !important;
+            background: transparent;
+            color: #00FF66;
+            padding: 16px 45px;
+            border-radius: 50px;
+            border: 2px solid #00FF66;
+            font-weight: 700;
+            font-size: 16px;
             letter-spacing: 1px;
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
         }
-        
+
         .btn-secondary:hover {
-            background: rgba(0, 255, 102, 0.1) !important;
-            box-shadow: 0 0 30px rgba(0, 255, 102, 0.2) !important;
+            background: rgba(0, 255, 102, 0.1);
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
+            transform: translateY(-3px);
         }
-        
-        /* Section Titles */
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 100px 60px;
+            border-bottom: 1px solid rgba(0, 255, 102, 0.08);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
         .section-title {
-            font-size: 42px !important;
+            font-family: 'Orbitron', monospace;
+            font-size: 42px;
             font-weight: 700;
             letter-spacing: 3px;
-            margin-bottom: 15px !important;
-            color: #00FF66 !important;
-            text-shadow: 0 0 30px rgba(0, 255, 102, 0.2) !important;
+            color: #00FF66;
+            text-shadow: 0 0 30px rgba(0, 255, 102, 0.15);
             position: relative;
         }
-        
+
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 70px;
             height: 3px;
             background: #00FF66;
             margin: 15px auto 0;
             box-shadow: 0 0 20px #00FF66;
         }
-        
+
         .section-subtitle {
             color: #66ffaa;
             font-size: 18px;
-            margin-bottom: 50px;
+            margin-top: 15px;
             letter-spacing: 2px;
             font-weight: 300;
         }
-        
-        /* Services / Cards Grid */
+
+        /* ===== SERVICES GRID ===== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            width: 100%;
             max-width: 1200px;
-            margin-top: 30px;
+            margin: 0 auto;
         }
-        
+
         .service-card {
             background: rgba(5, 5, 5, 0.9);
-            border: 1px solid rgba(0, 255, 102, 0.15);
+            border: 1px solid rgba(0, 255, 102, 0.12);
             padding: 40px 30px;
             border-radius: 12px;
-            text-align: left;
             transition: 0.4s;
             position: relative;
             overflow: hidden;
         }
-        
+
         .service-card::before {
             content: '';
             position: absolute;
@@ -283,87 +319,82 @@
             height: 3px;
             background: linear-gradient(90deg, transparent, #00FF66, transparent);
         }
-        
+
         .service-card:hover {
             transform: translateY(-8px);
             border-color: #00FF66;
-            box-shadow: 0 20px 60px rgba(0, 255, 102, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 255, 102, 0.08);
         }
-        
+
         .service-icon {
             font-size: 36px;
             color: #00FF66;
             margin-bottom: 20px;
         }
-        
+
         .service-card h3 {
             font-size: 22px;
             color: #fff;
             margin-bottom: 10px;
             letter-spacing: 1px;
         }
-        
+
         .service-card p {
             color: #88ccaa;
             font-size: 15px;
             line-height: 1.7;
-            margin-bottom: 0;
-            font-family: 'Rajdhani', sans-serif !important;
         }
-        
+
         .service-tag {
             display: inline-block;
             margin-top: 15px;
             font-size: 12px;
             color: #00FF66;
-            border: 1px solid rgba(0, 255, 102, 0.3);
+            border: 1px solid rgba(0, 255, 102, 0.25);
             padding: 4px 14px;
             border-radius: 20px;
             letter-spacing: 1px;
         }
-        
-        /* Stats Section */
+
+        /* ===== STATS ===== */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 30px;
-            width: 100%;
             max-width: 900px;
-            margin-top: 30px;
+            margin: 0 auto;
         }
-        
+
         .stat-item {
             text-align: center;
             padding: 30px 20px;
             background: rgba(5, 5, 5, 0.6);
-            border: 1px solid rgba(0, 255, 102, 0.1);
+            border: 1px solid rgba(0, 255, 102, 0.08);
             border-radius: 10px;
         }
-        
+
         .stat-item h3 {
-            font-size: 48px !important;
+            font-family: 'Orbitron', monospace;
+            font-size: 48px;
             color: #00FF66;
-            text-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
-            margin-bottom: 5px !important;
+            text-shadow: 0 0 30px rgba(0, 255, 102, 0.15);
+            margin-bottom: 5px;
         }
-        
+
         .stat-item p {
             color: #88ccaa;
             font-size: 14px;
             letter-spacing: 1px;
-            margin-bottom: 0 !important;
             text-transform: uppercase;
         }
-        
-        /* Testimonials / Trust */
+
+        /* ===== TRUST BAR ===== */
         .trust-section {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 60px 0 !important;
-            min-height: auto !important;
-            border-top: 1px solid rgba(0, 255, 102, 0.1);
-            border-bottom: 1px solid rgba(0, 255, 102, 0.1);
+            padding: 50px 60px !important;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: none !important;
         }
-        
+
         .trust-logos {
             display: flex;
             gap: 50px;
@@ -371,81 +402,85 @@
             flex-wrap: wrap;
             opacity: 0.6;
         }
-        
+
         .trust-logos span {
             font-size: 14px;
             letter-spacing: 2px;
             color: #66ffaa;
             font-weight: 600;
         }
-        
-        /* Support Form - Professional */
-        .support-wrapper {
-            width: 100%;
+
+        /* ===== CONTACT FORM ===== */
+        .contact-wrapper {
             max-width: 600px;
+            margin: 0 auto;
             background: rgba(5, 5, 5, 0.8);
-            border: 1px solid rgba(0, 255, 102, 0.15);
+            border: 1px solid rgba(0, 255, 102, 0.12);
             padding: 50px;
             border-radius: 12px;
         }
-        
-        .support-wrapper h3 {
+
+        .contact-wrapper h3 {
             color: #00FF66;
             font-size: 24px;
             margin-bottom: 5px;
             letter-spacing: 1px;
         }
-        
-        .support-wrapper p {
+
+        .contact-wrapper p {
             color: #88ccaa;
             font-size: 14px;
             margin-bottom: 25px;
-            font-family: 'Rajdhani', sans-serif !important;
         }
-        
-        form.support-form input, 
-        form.support-form textarea {
-            background: #0a0a0a !important;
-            border: 1px solid rgba(0, 255, 102, 0.2) !important;
-            padding: 14px !important;
-            border-radius: 6px !important;
-            color: #aaffcc !important;
-            font-family: 'Rajdhani', sans-serif !important;
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            background: #0a0a0a;
+            border: 1px solid rgba(0, 255, 102, 0.15);
+            border-radius: 6px;
+            color: #aaffcc;
+            font-family: 'Rajdhani', sans-serif;
             font-size: 15px;
+            outline: none;
             transition: 0.3s;
         }
-        
-        form.support-form input:focus, 
-        form.support-form textarea:focus {
-            border-color: #00FF66 !important;
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #00FF66;
             box-shadow: 0 0 20px rgba(0, 255, 102, 0.05);
         }
-        
-        form.support-form button {
-            padding: 14px !important;
-            border-radius: 50px !important;
-            background: #00FF66 !important;
-            color: #000 !important;
-            font-weight: 700 !important;
+
+        .contact-form button {
+            width: 100%;
+            padding: 14px;
+            border-radius: 50px;
+            background: #00FF66;
+            color: #000;
+            font-weight: 700;
             font-size: 16px;
             letter-spacing: 1px;
-            border: none !important;
+            border: none;
+            cursor: pointer;
             transition: 0.3s;
+            margin-top: 10px;
         }
-        
-        form.support-form button:hover {
-            box-shadow: 0 0 40px rgba(0, 255, 102, 0.3) !important;
+
+        .contact-form button:hover {
+            box-shadow: 0 0 40px rgba(0, 255, 102, 0.25);
             transform: translateY(-2px);
         }
-        
-        /* Footer - Professional */
+
+        /* ===== FOOTER ===== */
         footer {
-            background: #000 !important;
-            border-top: 1px solid rgba(0, 255, 102, 0.15) !important;
-            padding: 60px 50px 30px !important;
-            text-align: left !important;
+            background: #000;
+            border-top: 1px solid rgba(0, 255, 102, 0.1);
+            padding: 60px 60px 30px;
         }
-        
+
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -453,29 +488,29 @@
             max-width: 1200px;
             margin: 0 auto 40px;
         }
-        
+
         .footer-brand h3 {
+            font-family: 'Orbitron', monospace;
             font-size: 24px;
             color: #00FF66;
             margin-bottom: 15px;
             letter-spacing: 2px;
         }
-        
+
         .footer-brand p {
             color: #66aa88;
             font-size: 14px;
             line-height: 1.8;
             max-width: 300px;
-            font-family: 'Rajdhani', sans-serif !important;
         }
-        
+
         .footer-col h4 {
             color: #fff;
             font-size: 16px;
             margin-bottom: 20px;
             letter-spacing: 1px;
         }
-        
+
         .footer-col a {
             display: block;
             color: #66aa88;
@@ -483,16 +518,15 @@
             font-size: 14px;
             margin-bottom: 10px;
             transition: 0.3s;
-            font-family: 'Rajdhani', sans-serif !important;
         }
-        
+
         .footer-col a:hover {
             color: #00FF66;
             transform: translateX(5px);
         }
-        
+
         .footer-bottom {
-            border-top: 1px solid rgba(0, 255, 102, 0.1);
+            border-top: 1px solid rgba(0, 255, 102, 0.08);
             padding-top: 25px;
             display: flex;
             justify-content: space-between;
@@ -502,77 +536,34 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-        
+
         .footer-bottom p {
             color: #448866;
             font-size: 13px;
-            margin-bottom: 0 !important;
-            font-family: 'Rajdhani', sans-serif !important;
         }
-        
+
         .footer-social a {
             color: #66aa88;
             font-size: 20px;
             margin-left: 20px;
             transition: 0.3s;
         }
-        
+
         .footer-social a:hover {
             color: #00FF66;
-            text-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+            text-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
         }
-        
-        /* Login Overlay - Premium */
-        .login-box {
-            background: rgba(5, 5, 5, 0.95) !important;
-            border: 1px solid #00FF66 !important;
-            padding: 50px !important;
-            width: 400px !important;
-            border-radius: 12px !important;
-            box-shadow: 0 0 60px rgba(0, 255, 102, 0.15) !important;
-            backdrop-filter: blur(10px);
-        }
-        
-        .login-box h2 {
-            font-size: 28px !important;
-            letter-spacing: 3px;
-            margin-bottom: 30px !important;
-        }
-        
-        .login-box input {
-            padding: 14px !important;
-            margin: 12px 0 !important;
-            border-radius: 6px !important;
-            background: #0a0a0a !important;
-            font-family: 'Rajdhani', sans-serif !important;
-            font-size: 15px;
-        }
-        
-        .login-box button {
-            padding: 14px !important;
-            border-radius: 50px !important;
-            font-size: 16px !important;
-            letter-spacing: 1px;
-            margin-top: 15px !important;
-        }
-        
-        .login-box .login-sub {
-            color: #66aa88;
-            font-size: 13px;
-            margin-top: 15px;
-            font-family: 'Rajdhani', sans-serif !important;
-        }
-        
-        /* Responsive */
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
-        
+
         @media (max-width: 768px) {
             header {
-                padding: 15px 20px !important;
+                padding: 15px 20px;
                 flex-direction: column;
                 gap: 15px;
             }
@@ -581,25 +572,21 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            .hero-agency h1 {
-                font-size: 40px !important;
-                letter-spacing: 3px;
+            .hero h1 {
+                font-size: 40px;
+                letter-spacing: 4px;
             }
-            .hero-agency {
-                padding: 100px 20px !important;
+            .hero {
+                padding: 100px 20px 60px;
             }
             section {
-                padding: 80px 20px !important;
+                padding: 60px 20px;
             }
             .section-title {
-                font-size: 30px !important;
+                font-size: 30px;
             }
-            .support-wrapper {
+            .contact-wrapper {
                 padding: 30px 20px;
-            }
-            .login-box {
-                width: 90% !important;
-                padding: 30px !important;
             }
             .footer-grid {
                 grid-template-columns: 1fr;
@@ -613,43 +600,16 @@
                 margin: 0 10px;
             }
         }
-        
-        /* Glitch animation for logo */
-        @keyframes glitch {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(2px, -2px); }
-            60% { transform: translate(-2px, -2px); }
-            80% { transform: translate(2px, 2px); }
-        }
-        
-        .glitch {
-            animation: glitch 4s infinite;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Matrix Canvas (your existing JS will use this) -->
+    <!-- ===== MATRIX CANVAS ===== -->
     <canvas id="matrix"></canvas>
 
-    <!-- ===== LOGIN OVERLAY ===== -->
-    <div id="auth-overlay">
-        <div class="login-box">
-            <h2><i class="fas fa-shield-halved"></i> UMBRAFLUX</h2>
-            <p style="color: #88ccaa; font-size: 14px; margin-bottom: 20px;">Global Cyber Security Agency</p>
-            <form id="login-form">
-                <input type="text" id="login-user" placeholder="Agent ID / Username" required>
-                <input type="password" id="login-pass" placeholder="Access Code" required>
-                <button type="submit"><i class="fas fa-key"></i> DECRYPT ACCESS</button>
-            </form>
-            <p class="login-sub">🔒 Encrypted channel • 256-bit secure</p>
-        </div>
-    </div>
-
     <!-- ===== MAIN CONTENT ===== -->
-    <div id="main-content">
-        
+    <div class="content-wrapper">
+
         <!-- HEADER -->
         <header>
             <div class="logo">
@@ -659,7 +619,68 @@
                 <li><a href="#home">HOME</a></li>
                 <li><a href="#services">SERVICES</a></li>
                 <li><a href="#stats">STATS</a></li>
-                <li><a href="#support">CONTACT</a></li>
-                <li><a href="#support" class="nav-cta">GET ACCESS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#contact" class="nav-cta">GET ACCESS</a></li>
             </ul>
-  
+        </header>
+
+        <!-- HERO -->
+        <section id="home" class="hero">
+            <div class="hero-badges">
+                <span class="hero-badge"><i class="fas fa-globe"></i> Global Operations</span>
+                <span class="hero-badge"><i class="fas fa-shield-alt"></i> 256-Bit Encrypted</span>
+                <span class="hero-badge"><i class="fas fa-users"></i> 1,200+ Agents</span>
+            </div>
+            
+            <h1>UMBRAFLUX</h1>
+            <p class="hero-subtitle">CYBER SECURITY & INTELLIGENCE AGENCY</p>
+            <p class="hero-tagline">
+                We operate at the intersection of cybersecurity, ethical hacking, 
+                and global intelligence. Protecting digital assets across 47 countries.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary"><i class="fas fa-bolt"></i> EXPLORE SERVICES</a>
+                <a href="#contact" class="btn-secondary"><i class="fas fa-envelope"></i> CONTACT INTELLIGENCE</a>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="section-header">
+                <h2 class="section-title">AGENCY SERVICES</h2>
+                <p class="section-subtitle">🔓 Global cyber operations & security solutions</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bug"></i></div>
+                    <h3>Penetration Testing</h3>
+                    <p>Enterprise-grade vulnerability assessments and ethical hacking simulations for Fortune 500 companies.</p>
+                    <span class="service-tag">⏱ 24/7 Operations</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shield-virus"></i></div>
+                    <h3>Threat Intelligence</h3>
+                    <p>Real-time threat monitoring, zero-day detection, and proactive defense strategies across global networks.</p>
+                    <span class="service-tag">🌐 Global Coverage</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Data Encryption</h3>
+                    <p>Quantum-ready encryption protocols for sensitive government and corporate data assets.</p>
+                    <span class="service-tag">🔐 AES-256 & Quantum</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>Digital Forensics</h3>
+                    <p>Advanced forensic analysis, incident response, and cybercrime investigation for legal and corporate cases.</p>
+                    <span class="service-tag">📁 Court-Admissible</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Cloud Security</h
