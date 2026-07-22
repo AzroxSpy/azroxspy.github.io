@@ -3,228 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UmbraFlux Community | Hack The Future</title>
+    <title>UmbraFlux Community | Secure. Connect. Hack.</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS for form submission -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">
-            <i class="fas fa-shield-halved"></i>
-            <span>UmbraFlux</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#feed">Live Feed</a></li>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#challenges">Challenges</a></li>
-            <li><a href="#community">Community</a></li>
-            <li><a href="#login" class="btn-login">Login</a></li>
-        </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="glitch-text" data-text="UMBRAFLUX">UMBRAFLUX</h1>
-            <p>Where Hackers Connect, Share & Dominate</p>
-            <div class="hero-buttons">
-                <a href="#feed" class="btn-primary">Join the Feed</a>
-                <a href="#games" class="btn-secondary">Play Games</a>
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrix"></canvas>
+
+    <!-- Authentication Overlay -->
+    <div id="auth-overlay">
+        <div class="login-box">
+            <div class="login-icon"><i class="fas fa-shield-halved"></i></div>
+            <h2>⚡ UMBRAFLUX</h2>
+            <p class="login-sub">Enter the grid</p>
+            <form id="login-form">
+                <input type="text" id="login-user" placeholder="Username / Alias" required>
+                <input type="password" id="login-pass" placeholder="Access Key" required>
+                <button type="submit"><i class="fas fa-key"></i> Decrypt Access</button>
+            </form>
+            <p class="login-footer">🔒 Encrypted connection</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-shield-halved"></i>
+                <span>UmbraFlux</span>
             </div>
-        </div>
-        <div class="matrix-bg"></div>
-    </section>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#feed">Live Feed</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </nav>
 
-    <!-- Live Feed Section -->
-    <section id="feed" class="feed-section">
-        <div class="container">
-            <h2><i class="fas fa-bolt"></i> Live Community Feed</h2>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="UMBRAFLUX">UMBRAFLUX</h1>
+                <p class="hero-tagline">Where the shadows meet the code.</p>
+                <div class="hero-stats">
+                    <span><i class="fas fa-user-secret"></i> 1,247 Operators</span>
+                    <span><i class="fas fa-code"></i> 342 Active Missions</span>
+                </div>
+                <a href="#feed" class="btn-primary"><i class="fas fa-bolt"></i> Enter the Feed</a>
+            </div>
+        </section>
+
+        <!-- Live Feed Section -->
+        <section id="feed">
+            <h2><i class="fas fa-rss"></i> Live Intelligence Feed</h2>
             <div class="feed-container">
+                
                 <div class="feed-post">
                     <div class="post-header">
-                        <img src="https://ui-avatars.com/api/?name=Cyber+Ghost&background=0D8ABC&color=fff" alt="Avatar">
+                        <div class="avatar" style="background:#00ff66;">CG</div>
                         <div class="post-info">
                             <h4>CyberGhost</h4>
-                            <span>2 min ago • #pentesting</span>
+                            <span>2 min ago • #zeroday</span>
                         </div>
                     </div>
-                    <div class="post-content">
-                        <p>Just found a zero-day in the latest Windows update! 🚨 Check the exploit section for details.</p>
-                        <div class="post-tags">
-                            <span>#Windows</span>
-                            <span>#ZeroDay</span>
-                            <span>#Exploit</span>
-                        </div>
+                    <p class="post-text">Zero-day discovered in Windows Update! Check the exploit section.</p>
+                    <div class="post-tags">
+                        <span>#Windows</span>
+                        <span>#Exploit</span>
                     </div>
                     <div class="post-actions">
                         <button><i class="fas fa-heart"></i> 47</button>
                         <button><i class="fas fa-comment"></i> 12</button>
-                        <button><i class="fas fa-share"></i> Share</button>
                     </div>
                 </div>
 
                 <div class="feed-post">
                     <div class="post-header">
-                        <img src="https://ui-avatars.com/api/?name=Dark+Pixel&background=FF6B35&color=fff" alt="Avatar">
+                        <div class="avatar" style="background:#ff6b35;">DP</div>
                         <div class="post-info">
                             <h4>DarkPixel</h4>
                             <span>15 min ago • #ctf</span>
                         </div>
                     </div>
-                    <div class="post-content">
-                        <p>Anyone up for a CTF session tonight at 9PM? We'll be hacking the HackTheBox machine "Titan".</p>
-                        <div class="post-tags">
-                            <span>#CTF</span>
-                            <span>#HackTheBox</span>
-                            <span>#Titan</span>
-                        </div>
+                    <p class="post-text">CTF session tonight at 9PM — HackTheBox machine "Titan".</p>
+                    <div class="post-tags">
+                        <span>#CTF</span>
+                        <span>#HackTheBox</span>
                     </div>
                     <div class="post-actions">
                         <button><i class="fas fa-heart"></i> 23</button>
                         <button><i class="fas fa-comment"></i> 8</button>
-                        <button><i class="fas fa-share"></i> Share</button>
-                    </div>
-                </div>
-
-                <div class="feed-post">
-                    <div class="post-header">
-                        <img src="https://ui-avatars.com/api/?name=Neon+Matrix&background=00FF88&color=000" alt="Avatar">
-                        <div class="post-info">
-                            <h4>NeonMatrix</h4>
-                            <span>1 hour ago • #news</span>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <p>New malware strain detected in the wild! "DarkFlux" encrypts files and demands crypto. Stay safe!</p>
-                        <div class="post-tags">
-                            <span>#Malware</span>
-                            <span>#Ransomware</span>
-                            <span>#DarkFlux</span>
-                        </div>
-                    </div>
-                    <div class="post-actions">
-                        <button><i class="fas fa-heart"></i> 89</button>
-                        <button><i class="fas fa-comment"></i> 34</button>
-                        <button><i class="fas fa-share"></i> Share</button>
                     </div>
                 </div>
 
                 <!-- Post Input -->
-                <div class="post-input">
-                    <img src="https://ui-avatars.com/api/?name=You&background=purple&color=fff" alt="You">
-                    <input type="text" placeholder="Share what's happening in the community...">
-                    <button class="btn-post"><i class="fas fa-paper-plane"></i> Post</button>
+                <div class="post-input-box">
+                    <div class="avatar" style="background:#7c3aed;">YOU</div>
+                    <input type="text" id="feed-input" placeholder="Share intel with the community...">
+                    <button id="feed-post-btn"><i class="fas fa-paper-plane"></i> Transmit</button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Games Section -->
-    <section id="games" class="games-section">
-        <div class="container">
-            <h2><i class="fas fa-gamepad"></i> Hacker's Arcade</h2>
+        <!-- Games Section -->
+        <section id="games">
+            <h2><i class="fas fa-gamepad"></i> The Arcade</h2>
             <div class="games-grid">
                 <div class="game-card">
                     <div class="game-icon"><i class="fas fa-terminal"></i></div>
                     <h3>Code Cracker</h3>
-                    <p>Break the encryption and unlock the flag. Test your crypto skills!</p>
-                    <button class="btn-play">Play Now</button>
+                    <p>Break encryption and capture the flag.</p>
+                    <button class="btn-game"><i class="fas fa-play"></i> Launch</button>
                 </div>
-
                 <div class="game-card">
                     <div class="game-icon"><i class="fas fa-bug"></i></div>
                     <h3>Bug Hunter</h3>
-                    <p>Find the vulnerabilities in the code before the time runs out!</p>
-                    <button class="btn-play">Play Now</button>
+                    <p>Find vulnerabilities before time runs out.</p>
+                    <button class="btn-game"><i class="fas fa-play"></i> Launch</button>
                 </div>
-
                 <div class="game-card">
                     <div class="game-icon"><i class="fas fa-network-wired"></i></div>
                     <h3>Network War</h3>
-                    <p>Capture the flag in a simulated network environment. Multiplayer!</p>
-                    <button class="btn-play">Play Now</button>
+                    <p>Multiplayer CTF in simulated networks.</p>
+                    <button class="btn-game"><i class="fas fa-play"></i> Launch</button>
                 </div>
-
                 <div class="game-card">
                     <div class="game-icon"><i class="fas fa-robot"></i></div>
                     <h3>AI Assault</h3>
-                    <p>Defeat the AI security systems in this strategic hacking challenge.</p>
-                    <button class="btn-play">Play Now</button>
+                    <p>Defeat AI security systems strategically.</p>
+                    <button class="btn-game"><i class="fas fa-play"></i> Launch</button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Challenges Section -->
-    <section id="challenges" class="challenges-section">
-        <div class="container">
-            <h2><i class="fas fa-trophy"></i> Weekly Challenges</h2>
-            <div class="challenges-grid">
-                <div class="challenge-card">
-                    <span class="badge">Active</span>
-                    <h3>Web Socket Injection</h3>
-                    <p>Difficulty: <span class="diff-hard">Hard</span></p>
-                    <p>Prize: $500 + Badge</p>
-                    <button class="btn-challenge">Join Challenge</button>
-                </div>
-                <div class="challenge-card">
-                    <span class="badge">Active</span>
-                    <h3>Reverse Engineering</h3>
-                    <p>Difficulty: <span class="diff-medium">Medium</span></p>
-                    <p>Prize: $200 + Badge</p>
-                    <button class="btn-challenge">Join Challenge</button>
-                </div>
-                <div class="challenge-card">
-                    <span class="badge">Coming</span>
-                    <h3>Mobile Pentesting</h3>
-                    <p>Difficulty: <span class="diff-easy">Easy</span></p>
-                    <p>Prize: $100 + Badge</p>
-                    <button class="btn-challenge disabled">Coming Soon</button>
-                </div>
+        <!-- Support Section -->
+        <section id="support">
+            <h2><i class="fas fa-headset"></i> Operative Support</h2>
+            <div class="support-container">
+                <form id="support-form" class="support-form">
+                    <input type="text" id="support-name" placeholder="Your Alias" required>
+                    <input type="email" id="support-email" placeholder="Encrypted Email" required>
+                    <textarea id="support-message" rows="4" placeholder="Describe your mission..."></textarea>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Transmit Message</button>
+                </form>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Community Stats -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stat-box">
-                <h3>1,247</h3>
-                <p>Active Members</p>
-            </div>
-            <div class="stat-box">
-                <h3>342</h3>
-                <p>Live Projects</p>
-            </div>
-            <div class="stat-box">
-                <h3>2.4K</h3>
-                <p>Daily Messages</p>
-            </div>
-            <div class="stat-box">
-                <h3>89</h3>
-                <p>Challenges Completed</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
+        <!-- Footer -->
+        <footer>
             <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-shield-halved"></i>
-                    <span>UmbraFlux</span>
-                </div>
+                <div class="footer-logo"><i class="fas fa-shield-halved"></i> UmbraFlux</div>
                 <div class="footer-links">
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Contact</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
                     <a href="#">Discord</a>
                     <a href="#">GitHub</a>
                 </div>
@@ -232,12 +172,11 @@
                     <a href="#"><i class="fab fa-discord"></i></a>
                     <a href="#"><i class="fab fa-github"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-reddit"></i></a>
                 </div>
             </div>
-            <p class="copyright">© 2026 UmbraFlux Community. All rights reserved. | Built for Hackers, by Hackers.</p>
-        </div>
-    </footer>
+            <p class="copyright">© 2026 UmbraFlux Community • Built for the shadows.</p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
