@@ -5,7 +5,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const katakana = 'Jay Hindi Jay Hind Jay Hind Jay Hind Jay Hind Jay Hind Jay Hind Jay Hind Jay Hind Jay Hind';
 const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const nums = '0123456789';
 const alphabet = katakana + latin + nums;
