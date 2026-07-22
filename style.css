@@ -1,38 +1,189 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    background-color: #000;
-    color: #32CD32;
+    box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #000;
+    color: #00FF66;
+    overflow-x: hidden;
+}
+
+/* Canvas Matrix Animation Background */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Authentication / Login Overlay */
+#auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.login-box {
+    background: #050505;
+    border: 2px solid #00FF66;
+    padding: 40px;
+    width: 350px;
+    box-shadow: 0 0 20px #00FF66;
     text-align: center;
 }
 
-/* Background Animation */
-.bg-animation {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(45deg, #000, #111, #000);
-    z-index: -1;
-    animation: pulse 10s infinite alternate;
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #00FF66;
+    text-shadow: 0 0 10px #00FF66;
 }
 
-@keyframes pulse {
-    0% { opacity: 0.8; }
-    100% { opacity: 1; }
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #111;
+    border: 1px solid #00FF66;
+    color: #00FF66;
+    outline: none;
 }
 
-header h1 { font-size: 3rem; margin-top: 50px; text-shadow: 0 0 10px #32CD32; }
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #00FF66;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
 
-.socials { font-size: 2rem; margin: 30px; }
-.socials a { color: #32CD32; margin: 0 15px; transition: 0.3s; }
-.socials a:hover { color: #fff; transform: scale(1.2); }
+.login-box button:hover {
+    background: #00cc52;
+    box-shadow: 0 0 15px #00FF66;
+}
 
-.card {
-    border: 2px solid #32CD32;
+/* Main Website Wrapper */
+#main-content {
+    display: none;
+}
+
+/* Header / Navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 1px solid #00FF66;
+    background: rgba(0, 0, 0, 0.8);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00FF66;
+}
+
+.social-links a {
+    color: #00FF66;
+    font-size: 24px;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #00FF66;
+}
+
+/* Sections */
+section {
+    min-height: 100vh;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px dashed rgba(0, 255, 102, 0.3);
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00FF66;
+}
+
+p {
+    max-width: 800px;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #aaffcc;
+}
+
+/* Terminal Box */
+.terminal {
+    background: rgba(5, 5, 5, 0.9);
+    border: 1px solid #00FF66;
     padding: 20px;
-    width: 80%;
-    margin: 20px auto;
-    background: rgba(0, 255, 0, 0.05);
+    width: 100%;
+    max-width: 700px;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+    margin-bottom: 20px;
 }
 
-footer { margin-top: 50px; font-size: 0.9rem; }
+/* Support Form */
+form.support-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+form.support-form input, form.support-form textarea {
+    padding: 12px;
+    margin: 10px 0;
+    background: #111;
+    border: 1px solid #00FF66;
+    color: #00FF66;
+    outline: none;
+}
+
+form.support-form button {
+    padding: 12px;
+    background: #00FF66;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form.support-form button:hover {
+    box-shadow: 0 0 15px #00FF66;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background: #000;
+    border-top: 1px solid #00FF66;
+}
