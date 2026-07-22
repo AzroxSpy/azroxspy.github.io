@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <!-- Combined CSS (Matrix + Professional) -->
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -109,6 +111,7 @@
             color: #00FF66;
         }
 
+        /* ===== GET ACCESS BUTTON (Discord) ===== */
         .nav-cta {
             background: #00FF66 !important;
             color: #000 !important;
@@ -116,6 +119,8 @@
             border-radius: 50px !important;
             font-weight: 700 !important;
             transition: 0.3s !important;
+            cursor: pointer;
+            display: inline-block;
         }
 
         .nav-cta::after {
@@ -410,7 +415,7 @@
             font-weight: 600;
         }
 
-        /* ===== CONTACT FORM ===== */
+        /* ===== CONTACT FORM (Email to umbrafluxsupport@gmail.com) ===== */
         .contact-wrapper {
             max-width: 600px;
             margin: 0 auto;
@@ -620,7 +625,8 @@
                 <li><a href="#services">SERVICES</a></li>
                 <li><a href="#stats">STATS</a></li>
                 <li><a href="#contact">CONTACT</a></li>
-                <li><a href="#contact" class="nav-cta">GET ACCESS</a></li>
+                <!-- GET ACCESS → Discord Link -->
+                <li><a href="https://discord.gg/MSa9p53rpG" target="_blank" class="nav-cta">GET ACCESS</a></li>
             </ul>
         </header>
 
@@ -677,10 +683,4 @@
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-user-secret"></i></div>
                     <h3>Digital Forensics</h3>
-                    <p>Advanced forensic analysis, incident response, and cybercrime investigation for legal and corporate cases.</p>
-                    <span class="service-tag">📁 Court-Admissible</span>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-cloud"></i></div>
-                    <h3>Cloud Security</h
+                    <p>Advanced forensic analysis, incident response, and cybercrime investiga
