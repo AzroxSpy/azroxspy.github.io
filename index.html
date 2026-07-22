@@ -3,415 +3,663 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UmbraFlux Agency | Elite Hacking Community</title>
+    <title>UmbraFlux | Global Cyber Security Agency</title>
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-        })();
-    </script>
+    <!-- Your Matrix CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Additional Professional CSS Overlay -->
+    <style>
+        /* PROFESSIONAL OVERRIDES FOR AGENCY LOOK */
+        
+        /* Typography Upgrade */
+        body {
+            font-family: 'Rajdhani', sans-serif !important;
+        }
+        h1, h2, h3, h4, .logo, .glitch-text, .nav-links a {
+            font-family: 'Orbitron', monospace !important;
+        }
+        
+        /* Remove default section padding to use better layout */
+        section {
+            min-height: 100vh;
+            padding: 120px 50px 80px !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            border-bottom: none !important;
+            position: relative;
+        }
+        
+        /* Premium Glassmorphism Navigation */
+        header {
+            background: rgba(0, 0, 0, 0.85) !important;
+            backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(0, 255, 102, 0.3) !important;
+            padding: 15px 60px !important;
+            box-shadow: 0 0 40px rgba(0, 255, 102, 0.1);
+        }
+        
+        .logo {
+            font-size: 28px !important;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #00FF66, #00cc66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none !important;
+        }
+        
+        .logo i {
+            -webkit-text-fill-color: #00FF66;
+            margin-right: 10px;
+        }
+        
+        /* Professional Navigation Links */
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #aaffcc !important;
+            text-decoration: none;
+            font-size: 15px !important;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            position: relative;
+            text-shadow: none !important;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00FF66;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: #00FF66 !important;
+        }
+        
+        .nav-cta {
+            background: #00FF66 !important;
+            color: #000 !important;
+            padding: 8px 25px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            border: none !important;
+        }
+        
+        .nav-cta::after {
+            display: none !important;
+        }
+        
+        .nav-cta:hover {
+            background: #00cc52 !important;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.4) !important;
+            color: #000 !important;
+        }
+        
+        /* Hero Section - Global Agency */
+        .hero-agency {
+            min-height: 100vh !important;
+            justify-content: center !important;
+            padding: 0 50px !important;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-agency h1 {
+            font-size: 72px !important;
+            font-weight: 900;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00FF66, #00cc66, #00FF66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 60px rgba(0, 255, 102, 0.3) !important;
+            animation: none !important;
+        }
+        
+        .hero-subtitle {
+            font-size: 22px !important;
+            color: #aaffcc;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .hero-tagline {
+            font-size: 16px;
+            color: #66ffaa;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+        
+        .hero-badges {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        
+        .hero-badge {
+            background: rgba(0, 255, 102, 0.08);
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 13px;
+            color: #aaffcc;
+            letter-spacing: 1px;
+        }
+        
+        .hero-badge i {
+            color: #00FF66;
+            margin-right: 8px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #00FF66 !important;
+            color: #000 !important;
+            padding: 16px 45px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            font-size: 16px !important;
+            letter-spacing: 1px;
+            border: none !important;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 0 60px rgba(0, 255, 102, 0.4) !important;
+        }
+        
+        .btn-secondary {
+            background: transparent !important;
+            color: #00FF66 !important;
+            padding: 16px 45px !important;
+            border-radius: 50px !important;
+            border: 2px solid #00FF66 !important;
+            font-weight: 700 !important;
+            font-size: 16px !important;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 255, 102, 0.1) !important;
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.2) !important;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 42px !important;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 15px !important;
+            color: #00FF66 !important;
+            text-shadow: 0 0 30px rgba(0, 255, 102, 0.2) !important;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #00FF66;
+            margin: 15px auto 0;
+            box-shadow: 0 0 20px #00FF66;
+        }
+        
+        .section-subtitle {
+            color: #66ffaa;
+            font-size: 18px;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+        
+        /* Services / Cards Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background: rgba(5, 5, 5, 0.9);
+            border: 1px solid rgba(0, 255, 102, 0.15);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: left;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00FF66, transparent);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #00FF66;
+            box-shadow: 0 20px 60px rgba(0, 255, 102, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 36px;
+            color: #00FF66;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .service-card p {
+            color: #88ccaa;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 0;
+            font-family: 'Rajdhani', sans-serif !important;
+        }
+        
+        .service-tag {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #00FF66;
+            border: 1px solid rgba(0, 255, 102, 0.3);
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+        
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(5, 5, 5, 0.6);
+            border: 1px solid rgba(0, 255, 102, 0.1);
+            border-radius: 10px;
+        }
+        
+        .stat-item h3 {
+            font-size: 48px !important;
+            color: #00FF66;
+            text-shadow: 0 0 30px rgba(0, 255, 102, 0.2);
+            margin-bottom: 5px !important;
+        }
+        
+        .stat-item p {
+            color: #88ccaa;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 0 !important;
+            text-transform: uppercase;
+        }
+        
+        /* Testimonials / Trust */
+        .trust-section {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 60px 0 !important;
+            min-height: auto !important;
+            border-top: 1px solid rgba(0, 255, 102, 0.1);
+            border-bottom: 1px solid rgba(0, 255, 102, 0.1);
+        }
+        
+        .trust-logos {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+        
+        .trust-logos span {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #66ffaa;
+            font-weight: 600;
+        }
+        
+        /* Support Form - Professional */
+        .support-wrapper {
+            width: 100%;
+            max-width: 600px;
+            background: rgba(5, 5, 5, 0.8);
+            border: 1px solid rgba(0, 255, 102, 0.15);
+            padding: 50px;
+            border-radius: 12px;
+        }
+        
+        .support-wrapper h3 {
+            color: #00FF66;
+            font-size: 24px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .support-wrapper p {
+            color: #88ccaa;
+            font-size: 14px;
+            margin-bottom: 25px;
+            font-family: 'Rajdhani', sans-serif !important;
+        }
+        
+        form.support-form input, 
+        form.support-form textarea {
+            background: #0a0a0a !important;
+            border: 1px solid rgba(0, 255, 102, 0.2) !important;
+            padding: 14px !important;
+            border-radius: 6px !important;
+            color: #aaffcc !important;
+            font-family: 'Rajdhani', sans-serif !important;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        
+        form.support-form input:focus, 
+        form.support-form textarea:focus {
+            border-color: #00FF66 !important;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.05);
+        }
+        
+        form.support-form button {
+            padding: 14px !important;
+            border-radius: 50px !important;
+            background: #00FF66 !important;
+            color: #000 !important;
+            font-weight: 700 !important;
+            font-size: 16px;
+            letter-spacing: 1px;
+            border: none !important;
+            transition: 0.3s;
+        }
+        
+        form.support-form button:hover {
+            box-shadow: 0 0 40px rgba(0, 255, 102, 0.3) !important;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer - Professional */
+        footer {
+            background: #000 !important;
+            border-top: 1px solid rgba(0, 255, 102, 0.15) !important;
+            padding: 60px 50px 30px !important;
+            text-align: left !important;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        
+        .footer-brand h3 {
+            font-size: 24px;
+            color: #00FF66;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .footer-brand p {
+            color: #66aa88;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 300px;
+            font-family: 'Rajdhani', sans-serif !important;
+        }
+        
+        .footer-col h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-col a {
+            display: block;
+            color: #66aa88;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+            font-family: 'Rajdhani', sans-serif !important;
+        }
+        
+        .footer-col a:hover {
+            color: #00FF66;
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 255, 102, 0.1);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .footer-bottom p {
+            color: #448866;
+            font-size: 13px;
+            margin-bottom: 0 !important;
+            font-family: 'Rajdhani', sans-serif !important;
+        }
+        
+        .footer-social a {
+            color: #66aa88;
+            font-size: 20px;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+        
+        .footer-social a:hover {
+            color: #00FF66;
+            text-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+        }
+        
+        /* Login Overlay - Premium */
+        .login-box {
+            background: rgba(5, 5, 5, 0.95) !important;
+            border: 1px solid #00FF66 !important;
+            padding: 50px !important;
+            width: 400px !important;
+            border-radius: 12px !important;
+            box-shadow: 0 0 60px rgba(0, 255, 102, 0.15) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .login-box h2 {
+            font-size: 28px !important;
+            letter-spacing: 3px;
+            margin-bottom: 30px !important;
+        }
+        
+        .login-box input {
+            padding: 14px !important;
+            margin: 12px 0 !important;
+            border-radius: 6px !important;
+            background: #0a0a0a !important;
+            font-family: 'Rajdhani', sans-serif !important;
+            font-size: 15px;
+        }
+        
+        .login-box button {
+            padding: 14px !important;
+            border-radius: 50px !important;
+            font-size: 16px !important;
+            letter-spacing: 1px;
+            margin-top: 15px !important;
+        }
+        
+        .login-box .login-sub {
+            color: #66aa88;
+            font-size: 13px;
+            margin-top: 15px;
+            font-family: 'Rajdhani', sans-serif !important;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px !important;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-agency h1 {
+                font-size: 40px !important;
+                letter-spacing: 3px;
+            }
+            .hero-agency {
+                padding: 100px 20px !important;
+            }
+            section {
+                padding: 80px 20px !important;
+            }
+            .section-title {
+                font-size: 30px !important;
+            }
+            .support-wrapper {
+                padding: 30px 20px;
+            }
+            .login-box {
+                width: 90% !important;
+                padding: 30px !important;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-social a {
+                margin: 0 10px;
+            }
+        }
+        
+        /* Glitch animation for logo */
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(2px, 2px); }
+        }
+        
+        .glitch {
+            animation: glitch 4s infinite;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Matrix Canvas Background -->
+    <!-- Matrix Canvas (your existing JS will use this) -->
     <canvas id="matrix"></canvas>
 
-    <!-- ==================== LOGIN OVERLAY ==================== -->
+    <!-- ===== LOGIN OVERLAY ===== -->
     <div id="auth-overlay">
         <div class="login-box">
-            <div class="login-header">
-                <i class="fas fa-shield-halved"></i>
-                <h2>UMBRAFLUX</h2>
-                <p>Elite Access Required</p>
-            </div>
+            <h2><i class="fas fa-shield-halved"></i> UMBRAFLUX</h2>
+            <p style="color: #88ccaa; font-size: 14px; margin-bottom: 20px;">Global Cyber Security Agency</p>
             <form id="login-form">
-                <div class="input-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="login-user" placeholder="Agent Username" required>
-                </div>
-                <div class="input-group">
-                    <i class="fas fa-key"></i>
-                    <input type="password" id="login-pass" placeholder="Access Code" required>
-                </div>
-                <button type="submit" class="btn-login">
-                    <i class="fas fa-unlock"></i> DECRYPT ACCESS
-                </button>
-                <div class="login-footer">
-                    <span class="glitch-text">// Secure Connection Established</span>
-                </div>
+                <input type="text" id="login-user" placeholder="Agent ID / Username" required>
+                <input type="password" id="login-pass" placeholder="Access Code" required>
+                <button type="submit"><i class="fas fa-key"></i> DECRYPT ACCESS</button>
             </form>
+            <p class="login-sub">🔒 Encrypted channel • 256-bit secure</p>
         </div>
     </div>
 
-    <!-- ==================== MAIN CONTENT ==================== -->
+    <!-- ===== MAIN CONTENT ===== -->
     <div id="main-content">
         
-        <!-- NAVIGATION -->
-        <nav class="navbar">
-            <div class="nav-left">
-                <div class="logo">
-                    <i class="fas fa-shield-halved"></i>
-                    <span>UMBRAFLUX</span>
-                    <span class="badge">v2.0</span>
-                </div>
+        <!-- HEADER -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-shield-halved"></i> UMBRAFLUX
             </div>
-            
             <ul class="nav-links">
-                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#feed"><i class="fas fa-bolt"></i> Live Feed</a></li>
-                <li><a href="#games"><i class="fas fa-gamepad"></i> Arcade</a></li>
-                <li><a href="#challenges"><i class="fas fa-trophy"></i> Challenges</a></li>
-                <li><a href="#support"><i class="fas fa-headset"></i> Support</a></li>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#stats">STATS</a></li>
+                <li><a href="#support">CONTACT</a></li>
+                <li><a href="#support" class="nav-cta">GET ACCESS</a></li>
             </ul>
-            
-            <div class="nav-right">
-                <div class="status-dot"></div>
-                <span class="status-text">Online</span>
-                <button class="btn-logout" onclick="location.reload()">
-                    <i class="fas fa-sign-out-alt"></i>
-                </button>
-            </div>
-            
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-
-        <!-- ==================== HOME SECTION ==================== -->
-        <section id="home" class="hero-section">
-            <div class="hero-content">
-                <div class="hero-badge">// UMBRAFLUX AGENCY</div>
-                <h1 class="glitch-main" data-text="WHERE HACKERS RULE">WHERE HACKERS RULE</h1>
-                <p class="hero-subtitle">Elite cybersecurity collective • 2,400+ agents • 47 countries</p>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>2,447</h3>
-                        <p>Active Agents</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>1,892</h3>
-                        <p>Exploits Shared</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>342</h3>
-                        <p>Live Ops</p>
-                    </div>
-                </div>
-                
-                <div class="hero-buttons">
-                    <a href="#feed" class="btn-primary">
-                        <i class="fas fa-eye"></i> Enter the Feed
-                    </a>
-                    <a href="#games" class="btn-secondary">
-                        <i class="fas fa-gamepad"></i> Play Games
-                    </a>
-                </div>
-                
-                <div class="terminal-ticker">
-                    <span>> </span>
-                    <span id="ticker-text">Initializing UmbraFlux v2.0... Access granted... Welcome back, Agent.</span>
-                    <span class="cursor">_</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== LIVE FEED SECTION ==================== -->
-        <section id="feed" class="feed-section">
-            <div class="section-header">
-                <h2><i class="fas fa-bolt"></i> LIVE COMMUNITY FEED</h2>
-                <span class="live-indicator">● LIVE</span>
-            </div>
-            
-            <div class="feed-container">
-                <!-- Post 1 -->
-                <div class="feed-post">
-                    <div class="post-header">
-                        <div class="avatar" style="background: #ff4444;">
-                            <span>CG</span>
-                        </div>
-                        <div class="post-info">
-                            <h4>CyberGhost <span class="role">Elite</span></h4>
-                            <span class="time">2 min ago • #zeroday</span>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <p>🚨 <strong>ZERO-DAY ALERT:</strong> Found critical RCE vulnerability in latest Windows build. Exploit code uploaded to the vault.</p>
-                        <div class="post-tags">
-                            <span class="tag">#Windows</span>
-                            <span class="tag">#RCE</span>
-                            <span class="tag">#ZeroDay</span>
-                            <span class="tag critical">CRITICAL</span>
-                        </div>
-                    </div>
-                    <div class="post-actions">
-                        <button class="like-btn"><i class="fas fa-heart"></i> 47</button>
-                        <button class="comment-btn"><i class="fas fa-comment"></i> 12</button>
-                        <button class="share-btn"><i class="fas fa-share"></i> Share</button>
-                    </div>
-                </div>
-
-                <!-- Post 2 -->
-                <div class="feed-post">
-                    <div class="post-header">
-                        <div class="avatar" style="background: #00ff88;">
-                            <span>DP</span>
-                        </div>
-                        <div class="post-info">
-                            <h4>DarkPixel <span class="role">Veteran</span></h4>
-                            <span class="time">15 min ago • #ctf</span>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <p>🎯 <strong>CTF Session TONIGHT:</strong> 9PM EST - We're tackling HackTheBox "Titan" machine. First to root gets a bounty. Join the channel!</p>
-                        <div class="post-tags">
-                            <span class="tag">#CTF</span>
-                            <span class="tag">#HackTheBox</span>
-                            <span class="tag">#Titan</span>
-                            <span class="tag bounty">BOUNTY: $200</span>
-                        </div>
-                    </div>
-                    <div class="post-actions">
-                        <button class="like-btn"><i class="fas fa-heart"></i> 23</button>
-                        <button class="comment-btn"><i class="fas fa-comment"></i> 8</button>
-                        <button class="share-btn"><i class="fas fa-share"></i> Share</button>
-                    </div>
-                </div>
-
-                <!-- Post 3 -->
-                <div class="feed-post">
-                    <div class="post-header">
-                        <div class="avatar" style="background: #ffaa00;">
-                            <span>NM</span>
-                        </div>
-                        <div class="post-info">
-                            <h4>NeonMatrix <span class="role">Analyst</span></h4>
-                            <span class="time">1 hour ago • #malware</span>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <p>⚠️ <strong>NEW MALWARE STRAIN:</strong> "DarkFlux" ransomware spotted. Encrypts files with AES-256. Decryption tool being developed. Stay vigilant!</p>
-                        <div class="post-tags">
-                            <span class="tag">#Malware</span>
-                            <span class="tag">#Ransomware</span>
-                            <span class="tag">#DarkFlux</span>
-                            <span class="tag warning">WARNING</span>
-                        </div>
-                    </div>
-                    <div class="post-actions">
-                        <button class="like-btn"><i class="fas fa-heart"></i> 89</button>
-                        <button class="comment-btn"><i class="fas fa-comment"></i> 34</button>
-                        <button class="share-btn"><i class="fas fa-share"></i> Share</button>
-                    </div>
-                </div>
-
-                <!-- Post Input -->
-                <div class="post-input-container">
-                    <div class="avatar" style="background: #6c5ce7;">
-                        <span>YOU</span>
-                    </div>
-                    <input type="text" id="post-input" placeholder="Share intel, exploits, or join the discussion...">
-                    <button class="btn-post" onclick="submitPost()">
-                        <i class="fas fa-paper-plane"></i> Transmit
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== GAMES SECTION ==================== -->
-        <section id="games" class="games-section">
-            <div class="section-header">
-                <h2><i class="fas fa-gamepad"></i> HACKER'S ARCADE</h2>
-                <span class="subtitle">Sharpen your skills. Dominate the leaderboard.</span>
-            </div>
-            
-            <div class="games-grid">
-                <div class="game-card">
-                    <div class="game-icon"><i class="fas fa-terminal"></i></div>
-                    <div class="game-content">
-                        <h3>Code Cracker</h3>
-                        <p>Break AES-256 encryption and capture the flag. Time-based challenge.</p>
-                        <div class="game-meta">
-                            <span><i class="fas fa-clock"></i> 5 min</span>
-                            <span><i class="fas fa-star"></i> 4.8</span>
-                        </div>
-                        <button class="btn-play" onclick="launchGame('Code Cracker')">
-                            <i class="fas fa-play"></i> Launch
-                        </button>
-                    </div>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-icon"><i class="fas fa-bug"></i></div>
-                    <div class="game-content">
-                        <h3>Bug Hunter</h3>
-                        <p>Find 10 vulnerabilities in this web app. Fastest hunter wins!</p>
-                        <div class="game-meta">
-                            <span><i class="fas fa-clock"></i> 10 min</span>
-                            <span><i class="fas fa-star"></i> 4.9</span>
-                        </div>
-                        <button class="btn-play" onclick="launchGame('Bug Hunter')">
-                            <i class="fas fa-play"></i> Launch
-                        </button>
-                    </div>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-icon"><i class="fas fa-network-wired"></i></div>
-                    <div class="game-content">
-                        <h3>Network War</h3>
-                        <p>Multiplayer CTF - Capture enemy flags in a simulated network.</p>
-                        <div class="game-meta">
-                            <span><i class="fas fa-clock"></i> 15 min</span>
-                            <span><i class="fas fa-star"></i> 4.7</span>
-                        </div>
-                        <button class="btn-play" onclick="launchGame('Network War')">
-                            <i class="fas fa-play"></i> Launch
-                        </button>
-                    </div>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-icon"><i class="fas fa-robot"></i></div>
-                    <div class="game-content">
-                        <h3>AI Assault</h3>
-                        <p>Defeat the AI security system using social engineering & exploits.</p>
-                        <div class="game-meta">
-                            <span><i class="fas fa-clock"></i> 20 min</span>
-                            <span><i class="fas fa-star"></i> 4.6</span>
-                        </div>
-                        <button class="btn-play" onclick="launchGame('AI Assault')">
-                            <i class="fas fa-play"></i> Launch
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== CHALLENGES SECTION ==================== -->
-        <section id="challenges" class="challenges-section">
-            <div class="section-header">
-                <h2><i class="fas fa-trophy"></i> WEEKLY CHALLENGES</h2>
-                <span class="subtitle">Prove your skills. Earn bounties and badges.</span>
-            </div>
-            
-            <div class="challenges-grid">
-                <div class="challenge-card active">
-                    <div class="card-badge">ACTIVE</div>
-                    <div class="challenge-icon"><i class="fas fa-code"></i></div>
-                    <h3>Web Socket Injection</h3>
-                    <div class="challenge-meta">
-                        <span class="difficulty hard">Hard</span>
-                        <span class="bounty">$500</span>
-                    </div>
-                    <p>Exploit the WebSocket implementation and gain RCE on the target server.</p>
-                    <div class="challenge-stats">
-                        <span><i class="fas fa-users"></i> 34 joined</span>
-                        <span><i class="fas fa-clock"></i> 3 days left</span>
-                    </div>
-                    <button class="btn-challenge" onclick="joinChallenge('Web Socket Injection')">
-                        <i class="fas fa-sword"></i> Join Battle
-                    </button>
-                </div>
-
-                <div class="challenge-card active">
-                    <div class="card-badge">ACTIVE</div>
-                    <div class="challenge-icon"><i class="fas fa-rotate"></i></div>
-                    <h3>Reverse Engineering</h3>
-                    <div class="challenge-meta">
-                        <span class="difficulty medium">Medium</span>
-                        <span class="bounty">$200</span>
-                    </div>
-                    <p>Reverse engineer this Android APK and extract the hidden flag.</p>
-                    <div class="challenge-stats">
-                        <span><i class="fas fa-users"></i> 21 joined</span>
-                        <span><i class="fas fa-clock"></i> 5 days left</span>
-                    </div>
-                    <button class="btn-challenge" onclick="joinChallenge('Reverse Engineering')">
-                        <i class="fas fa-sword"></i> Join Battle
-                    </button>
-                </div>
-
-                <div class="challenge-card upcoming">
-                    <div class="card-badge">UPCOMING</div>
-                    <div class="challenge-icon"><i class="fas fa-mobile"></i></div>
-                    <h3>Mobile Pentesting</h3>
-                    <div class="challenge-meta">
-                        <span class="difficulty easy">Easy</span>
-                        <span class="bounty">$100</span>
-                    </div>
-                    <p>Pentest this iOS application and find the vulnerabilities.</p>
-                    <div class="challenge-stats">
-                        <span><i class="fas fa-users"></i> 12 joined</span>
-                        <span><i class="fas fa-clock"></i> Starts in 2 days</span>
-                    </div>
-                    <button class="btn-challenge disabled" disabled>
-                        <i class="fas fa-lock"></i> Coming Soon
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==================== SUPPORT SECTION ==================== -->
-        <section id="support" class="support-section">
-            <div class="section-header">
-                <h2><i class="fas fa-headset"></i> AGENT SUPPORT</h2>
-                <span class="subtitle">Report issues, request help, or submit intel.</span>
-            </div>
-            
-            <div class="support-container">
-                <div class="support-info">
-                    <div class="info-card">
-                        <i class="fas fa-envelope"></i>
-                        <h4>Official Channels</h4>
-                        <p>umbrafluxofficial@gmail.com</p>
-                        <p>umbrafluxsupport@gmail.com</p>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-clock"></i>
-                        <h4>Response Time</h4>
-                        <p><span class="green">Active:</span> 24/7 Support</p>
-                        <p>Avg. response: 15 min</p>
-                    </div>
-                </div>
-                
-                <form id="support-form" class="support-form">
-                    <div class="form-group">
-                        <label><i class="fas fa-user"></i> Agent Name</label>
-                        <input type="text" id="support-name" placeholder="Your codename" required>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-envelope"></i> Contact Email</label>
-                        <input type="email" id="support-email" placeholder="agent@domain.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-comment"></i> Message</label>
-                        <textarea id="support-message" rows="4" placeholder="Describe your issue or intel..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <i class="fas fa-paper-plane"></i> Transmit Message
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <!-- ==================== FOOTER ==================== -->
-        <footer>
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-shield-halved"></i>
-                    <span>UMBRAFLUX</span>
-                </div>
-                <div class="footer-links">
-                    <a href="#"><i 
+  
